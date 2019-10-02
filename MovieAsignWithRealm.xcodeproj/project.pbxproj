@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0852BEF2344702100F7D3B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0852BEE2344702100F7D3B1 /* AppDelegate.swift */; };
+		D0852BF12344702100F7D3B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0852BF02344702100F7D3B1 /* ViewController.swift */; };
+		D0852BF42344702100F7D3B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0852BF22344702100F7D3B1 /* Main.storyboard */; };
+		D0852BF62344702200F7D3B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0852BF52344702200F7D3B1 /* Assets.xcassets */; };
+		D0852BF92344702200F7D3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0852BF72344702200F7D3B1 /* LaunchScreen.storyboard */; };
+		D0852C042344702300F7D3B1 /* MovieAsignWithRealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0852C032344702300F7D3B1 /* MovieAsignWithRealmTests.swift */; };
+		D0852C0F2344702300F7D3B1 /* MovieAsignWithRealmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0852C0E2344702300F7D3B1 /* MovieAsignWithRealmUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D0852C002344702300F7D3B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0852BE32344702100F7D3B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0852BEA2344702100F7D3B1;
+			remoteInfo = MovieAsignWithRealm;
+		};
+		D0852C0B2344702300F7D3B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0852BE32344702100F7D3B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0852BEA2344702100F7D3B1;
+			remoteInfo = MovieAsignWithRealm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D0852BEB2344702100F7D3B1 /* MovieAsignWithRealm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieAsignWithRealm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0852BEE2344702100F7D3B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D0852BF02344702100F7D3B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D0852BF32344702100F7D3B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D0852BF52344702200F7D3B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0852BF82344702200F7D3B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D0852BFA2344702200F7D3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0852BFF2344702300F7D3B1 /* MovieAsignWithRealmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAsignWithRealmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0852C032344702300F7D3B1 /* MovieAsignWithRealmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAsignWithRealmTests.swift; sourceTree = "<group>"; };
+		D0852C052344702300F7D3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0852C0A2344702300F7D3B1 /* MovieAsignWithRealmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAsignWithRealmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0852C0E2344702300F7D3B1 /* MovieAsignWithRealmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAsignWithRealmUITests.swift; sourceTree = "<group>"; };
+		D0852C102344702300F7D3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0852BE82344702100F7D3B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0852BFC2344702300F7D3B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0852C072344702300F7D3B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0852BE22344702100F7D3B1 = {
+			isa = PBXGroup;
+			children = (
+				D0852BED2344702100F7D3B1 /* MovieAsignWithRealm */,
+				D0852C022344702300F7D3B1 /* MovieAsignWithRealmTests */,
+				D0852C0D2344702300F7D3B1 /* MovieAsignWithRealmUITests */,
+				D0852BEC2344702100F7D3B1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D0852BEC2344702100F7D3B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0852BEB2344702100F7D3B1 /* MovieAsignWithRealm.app */,
+				D0852BFF2344702300F7D3B1 /* MovieAsignWithRealmTests.xctest */,
+				D0852C0A2344702300F7D3B1 /* MovieAsignWithRealmUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0852BED2344702100F7D3B1 /* MovieAsignWithRealm */ = {
+			isa = PBXGroup;
+			children = (
+				D0852BEE2344702100F7D3B1 /* AppDelegate.swift */,
+				D0852BF02344702100F7D3B1 /* ViewController.swift */,
+				D0852BF22344702100F7D3B1 /* Main.storyboard */,
+				D0852BF52344702200F7D3B1 /* Assets.xcassets */,
+				D0852BF72344702200F7D3B1 /* LaunchScreen.storyboard */,
+				D0852BFA2344702200F7D3B1 /* Info.plist */,
+			);
+			path = MovieAsignWithRealm;
+			sourceTree = "<group>";
+		};
+		D0852C022344702300F7D3B1 /* MovieAsignWithRealmTests */ = {
+			isa = PBXGroup;
+			children = (
+				D0852C032344702300F7D3B1 /* MovieAsignWithRealmTests.swift */,
+				D0852C052344702300F7D3B1 /* Info.plist */,
+			);
+			path = MovieAsignWithRealmTests;
+			sourceTree = "<group>";
+		};
+		D0852C0D2344702300F7D3B1 /* MovieAsignWithRealmUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D0852C0E2344702300F7D3B1 /* MovieAsignWithRealmUITests.swift */,
+				D0852C102344702300F7D3B1 /* Info.plist */,
+			);
+			path = MovieAsignWithRealmUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0852BEA2344702100F7D3B1 /* MovieAsignWithRealm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0852C132344702300F7D3B1 /* Build configuration list for PBXNativeTarget "MovieAsignWithRealm" */;
+			buildPhases = (
+				D0852BE72344702100F7D3B1 /* Sources */,
+				D0852BE82344702100F7D3B1 /* Frameworks */,
+				D0852BE92344702100F7D3B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MovieAsignWithRealm;
+			productName = MovieAsignWithRealm;
+			productReference = D0852BEB2344702100F7D3B1 /* MovieAsignWithRealm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0852BFE2344702300F7D3B1 /* MovieAsignWithRealmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0852C162344702300F7D3B1 /* Build configuration list for PBXNativeTarget "MovieAsignWithRealmTests" */;
+			buildPhases = (
+				D0852BFB2344702300F7D3B1 /* Sources */,
+				D0852BFC2344702300F7D3B1 /* Frameworks */,
+				D0852BFD2344702300F7D3B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0852C012344702300F7D3B1 /* PBXTargetDependency */,
+			);
+			name = MovieAsignWithRealmTests;
+			productName = MovieAsignWithRealmTests;
+			productReference = D0852BFF2344702300F7D3B1 /* MovieAsignWithRealmTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D0852C092344702300F7D3B1 /* MovieAsignWithRealmUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0852C192344702300F7D3B1 /* Build configuration list for PBXNativeTarget "MovieAsignWithRealmUITests" */;
+			buildPhases = (
+				D0852C062344702300F7D3B1 /* Sources */,
+				D0852C072344702300F7D3B1 /* Frameworks */,
+				D0852C082344702300F7D3B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0852C0C2344702300F7D3B1 /* PBXTargetDependency */,
+			);
+			name = MovieAsignWithRealmUITests;
+			productName = MovieAsignWithRealmUITests;
+			productReference = D0852C0A2344702300F7D3B1 /* MovieAsignWithRealmUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0852BE32344702100F7D3B1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "saw pyaehtun";
+				TargetAttributes = {
+					D0852BEA2344702100F7D3B1 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					D0852BFE2344702300F7D3B1 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = D0852BEA2344702100F7D3B1;
+					};
+					D0852C092344702300F7D3B1 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = D0852BEA2344702100F7D3B1;
+					};
+				};
+			};
+			buildConfigurationList = D0852BE62344702100F7D3B1 /* Build configuration list for PBXProject "MovieAsignWithRealm" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0852BE22344702100F7D3B1;
+			productRefGroup = D0852BEC2344702100F7D3B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0852BEA2344702100F7D3B1 /* MovieAsignWithRealm */,
+				D0852BFE2344702300F7D3B1 /* MovieAsignWithRealmTests */,
+				D0852C092344702300F7D3B1 /* MovieAsignWithRealmUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0852BE92344702100F7D3B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0852BF92344702200F7D3B1 /* LaunchScreen.storyboard in Resources */,
+				D0852BF62344702200F7D3B1 /* Assets.xcassets in Resources */,
+				D0852BF42344702100F7D3B1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0852BFD2344702300F7D3B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0852C082344702300F7D3B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0852BE72344702100F7D3B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0852BF12344702100F7D3B1 /* ViewController.swift in Sources */,
+				D0852BEF2344702100F7D3B1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0852BFB2344702300F7D3B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0852C042344702300F7D3B1 /* MovieAsignWithRealmTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0852C062344702300F7D3B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0852C0F2344702300F7D3B1 /* MovieAsignWithRealmUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0852C012344702300F7D3B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0852BEA2344702100F7D3B1 /* MovieAsignWithRealm */;
+			targetProxy = D0852C002344702300F7D3B1 /* PBXContainerItemProxy */;
+		};
+		D0852C0C2344702300F7D3B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0852BEA2344702100F7D3B1 /* MovieAsignWithRealm */;
+			targetProxy = D0852C0B2344702300F7D3B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D0852BF22344702100F7D3B1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0852BF32344702100F7D3B1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D0852BF72344702200F7D3B1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0852BF82344702200F7D3B1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D0852C112344702300F7D3B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D0852C122344702300F7D3B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D0852C142344702300F7D3B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MovieAsignWithRealm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = saw.com.MovieAsignWithRealm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D0852C152344702300F7D3B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MovieAsignWithRealm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = saw.com.MovieAsignWithRealm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D0852C172344702300F7D3B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MovieAsignWithRealmTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = saw.com.MovieAsignWithRealmTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieAsignWithRealm.app/MovieAsignWithRealm";
+			};
+			name = Debug;
+		};
+		D0852C182344702300F7D3B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MovieAsignWithRealmTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = saw.com.MovieAsignWithRealmTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieAsignWithRealm.app/MovieAsignWithRealm";
+			};
+			name = Release;
+		};
+		D0852C1A2344702300F7D3B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MovieAsignWithRealmUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = saw.com.MovieAsignWithRealmUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MovieAsignWithRealm;
+			};
+			name = Debug;
+		};
+		D0852C1B2344702300F7D3B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MovieAsignWithRealmUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = saw.com.MovieAsignWithRealmUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MovieAsignWithRealm;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0852BE62344702100F7D3B1 /* Build configuration list for PBXProject "MovieAsignWithRealm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0852C112344702300F7D3B1 /* Debug */,
+				D0852C122344702300F7D3B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0852C132344702300F7D3B1 /* Build configuration list for PBXNativeTarget "MovieAsignWithRealm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0852C142344702300F7D3B1 /* Debug */,
+				D0852C152344702300F7D3B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0852C162344702300F7D3B1 /* Build configuration list for PBXNativeTarget "MovieAsignWithRealmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0852C172344702300F7D3B1 /* Debug */,
+				D0852C182344702300F7D3B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0852C192344702300F7D3B1 /* Build configuration list for PBXNativeTarget "MovieAsignWithRealmUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0852C1A2344702300F7D3B1 /* Debug */,
+				D0852C1B2344702300F7D3B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D0852BE32344702100F7D3B1 /* Project object */;
+}
