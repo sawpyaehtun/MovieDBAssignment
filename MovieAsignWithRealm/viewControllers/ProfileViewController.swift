@@ -139,7 +139,15 @@ extension ProfileViewController : LoginViewControllerDelegate{
 
 //MARK:- COLLECTION VEIEWS DELEGATES AND DATASOURCES
 extension ProfileViewController : UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = MovieDetailViewController.init()
+        if collectionView == self.collectionViewWatchList {
+            vc.movieVO = watchListMovies[indexPath.row]
+        } else {
+            vc.movieVO  = ratedMovieList[indexPath.row]
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension ProfileViewController : UICollectionViewDataSource {

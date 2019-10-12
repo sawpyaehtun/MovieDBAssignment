@@ -45,6 +45,7 @@ final class UserModel {
             
             data.decode(modelType: LoginAndRequestTokenResponse.self, success: { (loginRequestTokenResponse) in
                 if let isSuccessLogin = loginRequestTokenResponse.success {
+//                    CommonManger.shared.saveStringToNSUserDefault(value: loginRequestTokenResponse.requestToken!, key: CommonManger.SESSION_ID)
                     if isSuccessLogin {
                         self.getAccountDetail(success: {
                             success()
@@ -90,7 +91,7 @@ final class UserModel {
     
     func getWatchListMovies(success : @escaping ([MovieVO]) -> Void,
                             failure : @escaping (String) -> Void) {
-        NetworkClient.shared.request(url: "https://api.themoviedb.org/3/account/8660473/watchlist/movies?api_key=3ea4500e51ab3b0358547f472e44d5fc&session_id=1c9cf3211a9cd464048cf6a9a001bd6166f98ded", success: { (data) in
+        NetworkClient.shared.request(url:  String(format: MovieAPI.account.getMovieWatchList.urlStringWithSessionID(), "\(UserManager.shared.accountDetail?.id ?? 0)"), success: { (data) in
             
             let json = JSON(data)
 //            let value = json[MovieResponseKey.results.keyString()]

@@ -14,20 +14,23 @@ import SwiftyJSON
 
 
 class NetworkClient {
-     //MARK:- NETWORK CALLS
+    //MARK:- NETWORK CALLS
     static let shared = NetworkClient()
     
     public func request(url : String,
-                         method : HTTPMethod = .get,
-                         parameters : Parameters = [:],
-                         headers : HTTPHeaders = [:],
-                         success : @escaping (Data) -> Void,
-                         failure : @escaping (String) -> Void){
+                        method : HTTPMethod = .get,
+                        parameters : Parameters = [:],
+                        headers : HTTPHeaders = [:],
+                        success : @escaping (Data) -> Void,
+                        failure : @escaping (String) -> Void){
         print("url . . . : \(url)")
         
-        Alamofire.request(url, method: method, parameters: parameters, headers: headers).responseData { (response) in
+        Alamofire.request(url, method: method, parameters: parameters, headers: headers).validate().responseData { (response) in
             switch response.result {
             case .success(let data) :
+//                let json = JSON(data)
+//                let jsonString = json.rawString()
+//                print(jsonString)
                 success(data)
             case .failure(let err) :
                 failure(err.localizedDescription)
@@ -37,12 +40,12 @@ class NetworkClient {
     }
     
     public func requestWithoutCache (url: String,
-                     method : HTTPMethod = .get,
-                     parameters : Parameters = [:],
-                     headers : HTTPHeaders = [:],
-                     success : @escaping (Data) -> Void,
-                     failure : @escaping (String) -> Void){
-    print("url . . . : \(url)")
+                                     method : HTTPMethod = .get,
+                                     parameters : Parameters = [:],
+                                     headers : HTTPHeaders = [:],
+                                     success : @escaping (Data) -> Void,
+                                     failure : @escaping (String) -> Void){
+        print("url . . . : \(url)")
         Alamofire.SessionManager.default.request(url, method: method, parameters: parameters, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data) :
@@ -52,11 +55,11 @@ class NetworkClient {
                 break
             }
         }
-    
+        
     }
 }
 
- //MARK:- CHECK NETWORK
+//MARK:- CHECK NETWORK
 extension NetworkClient {
     
     static func isOnline(callback: @escaping (Bool) -> Void){

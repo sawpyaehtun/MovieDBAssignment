@@ -26,6 +26,7 @@
 		D02CD38E23486FC800586FD9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02CD38D23486FC800586FD9 /* UIViewController+Extension.swift */; };
 		D02CD3902348733600586FD9 /* PlayTrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02CD38F2348733600586FD9 /* PlayTrailerViewModel.swift */; };
 		D02CD3922348752200586FD9 /* VideoVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02CD3912348752200586FD9 /* VideoVO.swift */; };
+		D039E90E2350B70F00E32B98 /* RateMovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D039E90D2350B70F00E32B98 /* RateMovieRequest.swift */; };
 		D0852BEF2344702100F7D3B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0852BEE2344702100F7D3B1 /* AppDelegate.swift */; };
 		D0852BF92344702200F7D3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0852BF72344702200F7D3B1 /* LaunchScreen.storyboard */; };
 		D0852C042344702300F7D3B1 /* MovieAsignWithRealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0852C032344702300F7D3B1 /* MovieAsignWithRealmTests.swift */; };
@@ -138,6 +139,7 @@
 		D02CD38D23486FC800586FD9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		D02CD38F2348733600586FD9 /* PlayTrailerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTrailerViewModel.swift; sourceTree = "<group>"; };
 		D02CD3912348752200586FD9 /* VideoVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVO.swift; sourceTree = "<group>"; };
+		D039E90D2350B70F00E32B98 /* RateMovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateMovieRequest.swift; sourceTree = "<group>"; };
 		D0852BEB2344702100F7D3B1 /* MovieAsignWithRealm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieAsignWithRealm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0852BEE2344702100F7D3B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0852BF82344702200F7D3B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				D0D9BC57234D9B3A00AE4404 /* AddWatchListRequest.swift */,
+				D039E90D2350B70F00E32B98 /* RateMovieRequest.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -888,6 +891,7 @@
 				D0D9BC43234C585500AE4404 /* AccountDetailVO.swift in Sources */,
 				D018E296234749DC00BB5B78 /* MovieListTableViewCell.swift in Sources */,
 				D0D9BC41234C584600AE4404 /* UserVO.swift in Sources */,
+				D039E90E2350B70F00E32B98 /* RateMovieRequest.swift in Sources */,
 				D0D9BC53234C89D100AE4404 /* EnCodable + Extension.swift in Sources */,
 				D02CD38E23486FC800586FD9 /* UIViewController+Extension.swift in Sources */,
 				D0D9BC5A234DB15F00AE4404 /* RoundedImageView.swift in Sources */,

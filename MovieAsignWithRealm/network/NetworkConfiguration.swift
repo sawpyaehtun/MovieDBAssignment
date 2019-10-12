@@ -107,6 +107,7 @@ enum MovieAPI {
         case similar
         case detail
         case video
+        case rating
         
         func urlStringWithPageID() -> String {
             return NetworkConfiguration.urlStringWithPageID(apiString: "/movie" + apiString())
@@ -114,6 +115,14 @@ enum MovieAPI {
         
         func urlString() -> String {
             return NetworkConfiguration.urlString(apiString: "/movie" + apiString())
+        }
+        
+        func urlStringWithSessionID() -> String {
+            return NetworkConfiguration.urlStringWithSessionID(apiString : "/movie" + apiString())
+        }
+        
+        func urlStringWithSessionIDAndPageID() -> String {
+            return NetworkConfiguration.urlStringWithSessionIDAndPageID(apiString : "/movie" + apiString())
         }
         
         func apiString() -> String {
@@ -132,6 +141,8 @@ enum MovieAPI {
                 return "/%@"
             case .video:
                 return "/%@/videos"
+            case .rating:
+                return "/%@/rating"
             }
         }
     }

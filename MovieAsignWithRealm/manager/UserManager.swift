@@ -17,7 +17,7 @@ class UserManager {
     
     var accountDetail : AccountDetailVO? {
         get{
-            accountDetailObserable.value
+            return accountDetailObserable.value
         }
         
         set {
