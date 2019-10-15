@@ -175,9 +175,8 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYC-oh-bv8">
-                                                                    <rect key="frame" x="0.0" y="-0.5" width="84" height="100"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="100"/>
                                                                     <connections>
-                                                                        <action selector="didTapMyList:" destination="-1" eventType="touchUpInside" id="Pjk-6i-iWe"/>
                                                                         <action selector="didTapRate:" destination="-1" eventType="touchUpInside" id="pxI-ns-odT"/>
                                                                     </connections>
                                                                 </button>

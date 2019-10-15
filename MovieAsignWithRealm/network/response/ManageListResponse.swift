@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct ManageWatchListResponse : Codable {
+struct ManageListResponse : Codable {
     let statusCode : Int?
     let statusMessage : String?
 }
 
-extension ManageWatchListResponse {
+extension ManageListResponse {
     func isSuccess() -> Bool {
         if self.statusMessage == "Success." && self.statusCode == 1 {
             return true

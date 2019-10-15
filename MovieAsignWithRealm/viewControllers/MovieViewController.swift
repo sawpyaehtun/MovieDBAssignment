@@ -45,7 +45,7 @@ class MovieViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //        print(MovieAPI.movie.urlString())
-        fetchTopRatedMovie()
+        fetchAllMovies()
     }
     
     override func setUpUIs() {
@@ -71,12 +71,8 @@ class MovieViewController: BaseViewController {
 
     }
     
-    private func fetchTopRatedMovie(){
-        if NetworkClient.checkReachable() == false {
-            viewModel.getMovie()
-        } else {
+    private func fetchAllMovies(){
             viewModel.fetchAllMovie()
-        }
     }
     
     override func bindModel() {
@@ -131,6 +127,7 @@ extension MovieViewController : MovieListTableViewCellDelegate {
     func didTapCell(movie: MovieVO) {
         let vc = MovieDetailViewController.init()
         vc.movieVO = movie
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
 //        navigationController?.pushViewController(vc, animated: true)
     }

@@ -16,17 +16,24 @@ final class GenreViewModel : BaseViewModel {
     
     func fetchGenre() {
         loadingObservable.accept(true)
-        GenreModel.shared.fetchGeners(success: { (genreVOs) in
-            self.loadingObservable.accept(false)
-            self.genreList.accept(genreVOs)
-        }) { (err) in
-            self.loadingObservable.accept(false)
-            print(err)
+        if NetworkClient.checkReachable() == false {
+            loadingObservable.accept(false)
+            getGenre()
+        } else {
+            GenreModel.shared.fetchGeners(success: { (genreVOs) in
+                self.loadingObservable.accept(false)
+                self.genreList.accept(genreVOs)
+            }) { (err) in
+                self.loadingObservable.accept(false)
+                print(err)
+            }
         }
     }
     
-    func getMovie(success : @escaping () -> Void) {
-       
+    func getGenre() {
+        GenreModel.shared.getGenreList { (genreVOs) in
+            self.genreList.accept(genreVOs)
+        }
     }
     
 }

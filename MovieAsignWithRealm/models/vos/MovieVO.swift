@@ -31,5 +31,6 @@ struct MovieVO : Codable{
     let tagline : String?
     let genreVOs :[GenreVO]?
     var categories : [Int]?
-    
+    var isRated : Bool?
+    var isAddedWatchList : Bool?
 }

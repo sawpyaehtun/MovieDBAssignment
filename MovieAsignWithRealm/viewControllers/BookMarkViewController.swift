@@ -70,6 +70,7 @@ class BookMarkViewController: BaseViewController {
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let vc = MovieDetailViewController.init()
             vc.movieVO = movieList[indexPath.row]
+            vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
 //            navigationController?.pushViewController(vc, animated: true)
         }

@@ -46,7 +46,7 @@ extension LoginViewController{
     }
     
     @IBAction func didTapBtnSignIn(_ sender: Any) {
-        viewModel.login(username: "Saw191620", password: "191620") {
+        viewModel.login(username: tfUsername.text!, password: tfPassword.text!) {
             self.loginViewControllerDelegate?.successLogin()
             CommonManger.shared.saveBoolToNSUserDefault(value: true, key: CommonManger.IS_USER_LOGIN)
             self.navigationController?.viewControllers.removeLast()

@@ -16,18 +16,24 @@ final class MovieViewModel : BaseViewModel {
     
     func fetchAllMovie() {
         loadingObservable.accept(true)
-        MovieModel.shared.fetchAllmovie(success: { moivieVOs in
-            print(moivieVOs.count)
-            self.loadingObservable.accept(false)
-            self.allMovieList.accept(moivieVOs)
-        }) { (err) in
-            self.loadingObservable.accept(false)
-            print(err)
-            self.errorObservable.accept(err)
+        
+        if NetworkClient.checkReachable() == false {
+            loadingObservable.accept(false)
+            getMovies()
+        } else {
+            MovieModel.shared.fetchAllmovie(success: { moivieVOs in
+                print(moivieVOs.count)
+                self.loadingObservable.accept(false)
+                self.allMovieList.accept(moivieVOs)
+            }) { (err) in
+                self.loadingObservable.accept(false)
+                print(err)
+                self.errorObservable.accept(err)
+            }
         }
     }
     
-    func getMovie() {
+    func getMovies() {
         allMovieList.accept(MovieModel.shared.getMovie())
     }
     

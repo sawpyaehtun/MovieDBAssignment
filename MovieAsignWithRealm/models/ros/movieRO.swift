@@ -38,6 +38,8 @@ enum Category : Int{
     dynamic var runtime : Int?
     dynamic var tagline : String?
     var categories = List<CategoryRO>()
+    let isRated = RealmOptional<Bool>()
+    let isAddedWatchList = RealmOptional<Bool>()
     
     convenience init(popularity : Double?,
                      voteCount : Int?,
@@ -59,7 +61,9 @@ enum Category : Int{
                      revenue : Int?,
                      runtime : Int?,
                      tagline : String?,
-                     categories : List<CategoryRO>){
+                     categories : List<CategoryRO>,
+                     isRated : Bool?,
+                     isAddedWatchList : Bool?){
         self.init()
         self.popularity = popularity
         self.voteCount = voteCount
@@ -82,6 +86,8 @@ enum Category : Int{
         self.runtime = runtime
         self.tagline = tagline
         self.categories = categories
+        self.isAddedWatchList.value = isAddedWatchList
+        self.isRated.value = isRated
     }
     
     override class func primaryKey() -> String? {

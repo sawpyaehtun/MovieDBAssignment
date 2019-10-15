@@ -206,7 +206,7 @@ final class MovieModel: BaseViewModel {
                         return categoryROItem.id == currentCetegory
                     }){
                         /* current category is contain in category list of existing movie realm object.*/
-                        //                                self.saveToRealm(movieVO: movie)
+//                                                        self.saveToRealm(movieVO: movie)
                     } else {
                         /* current category is not contain in category list.
                          - So need to update the object in realm */
@@ -251,5 +251,9 @@ final class MovieModel: BaseViewModel {
     
     func getMovieVOById(movieID : Int) -> MovieVO {
         return (getMovieROById(movieID: movieID)?.toMovieVO())!
+    }
+    
+    func getMovieVOsByKey(key : String, property : String) -> [MovieVO]{
+        return (DBManager.sharedInstance.getObjArrayByKey(key: key, property: property, roName: .MovieRO)?.toMovieVOs()) ?? []
     }
 }

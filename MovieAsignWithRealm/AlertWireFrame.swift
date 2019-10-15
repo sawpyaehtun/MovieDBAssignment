@@ -22,6 +22,7 @@ class AlertWireFrame {
             alertController.addAction(alertCancelAction)
         }
         DispatchQueue.main.async {
+            alertController.modalPresentationStyle = .fullScreen
             viewController?.present(alertController, animated: true, completion: nil)
         }
     }

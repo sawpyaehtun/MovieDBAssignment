@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.0)
+  - Cosmos (20.0.1)
   - Differentiator (4.0.1)
   - IQKeyboardManagerSwift (6.5.1)
   - NVActivityIndicatorView (4.8.0):
@@ -29,6 +30,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Cosmos
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView
   - ReachabilitySwift
@@ -42,6 +44,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Cosmos
     - Differentiator
     - IQKeyboardManagerSwift
     - NVActivityIndicatorView
@@ -58,6 +61,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  Cosmos: b47fddf2102bb48580cd3025d9ce0a5c658a65da
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   IQKeyboardManagerSwift: 9ac7524fad9f9fe9a3b98c927e7772471ca546d2
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
@@ -72,6 +76,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 12aa088c12a72e2ecce179aafbe3f1fdac4e2c21
+PODFILE CHECKSUM: 8f8299bdde897150ef01b13f1e0c206c52ad677c
 
 COCOAPODS: 1.8.1

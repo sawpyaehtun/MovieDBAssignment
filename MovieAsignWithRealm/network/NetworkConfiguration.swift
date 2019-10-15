@@ -49,6 +49,7 @@ enum MovieAPI {
         case account
         case getMovieWatchList
         case addToWatchList
+        case getRatedMovies
         
         func urlStringWithPageID() -> String {
             return NetworkConfiguration.urlStringWithPageID(apiString: "/account" + apiString())
@@ -74,6 +75,8 @@ enum MovieAPI {
                 return "/%@/watchlist/movies" //account_id
             case .addToWatchList :
                 return "/%@/watchlist" //account_id
+            case .getRatedMovies :
+                return "/%@/rated/movies" // account_id
             }
         }
     }
@@ -127,22 +130,22 @@ enum MovieAPI {
         
         func apiString() -> String {
             switch self {
-            case .topRated:
+            case .topRated :
                 return "/top_rated"
-            case .nowPlaying:
+            case .nowPlaying :
                 return "/now_playing"
-            case .popular:
+            case .popular :
                 return "/popular"
-            case .upComing:
+            case .upComing :
                 return "/upcoming"
-            case .similar:
+            case .similar :
                 return "/%@/similar"
-            case .detail:
+            case .detail :
                 return "/%@"
-            case .video:
+            case .video :
                 return "/%@/videos"
-            case .rating:
-                return "/%@/rating"
+            case .rating :
+                return "/%@/rating" // movie id
             }
         }
     }

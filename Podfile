@@ -16,6 +16,7 @@ target 'MovieAsignWithRealm' do
     pod 'SwiftyJSON'
     pod 'RealmSwift'
     pod 'SnapKit'
+    pod 'Cosmos'
 
   target 'MovieAsignWithRealmTests' do
     inherit! :search_paths

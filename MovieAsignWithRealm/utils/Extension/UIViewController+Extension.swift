@@ -72,6 +72,7 @@ extension UIViewController {
 extension UIViewController {
     
     func presentDetail(_ viewControllerToPresent: UIViewController) {
+        viewControllerToPresent.modalPresentationStyle = .fullScreen
         present(viewControllerToPresent, animated: false)
         
         let transition = CATransition()

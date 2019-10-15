@@ -41,7 +41,9 @@ extension MovieVO{
                               revenue: self.revenue,
                               runtime: self.runtime,
                               tagline: self.tagline,
-                              categories: categoryList)
+                              categories: categoryList,
+                              isRated: self.isRated,
+                              isAddedWatchList: self.isAddedWatchList)
         return movieRO
     }
 }

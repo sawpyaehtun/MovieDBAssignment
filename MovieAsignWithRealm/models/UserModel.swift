@@ -45,7 +45,7 @@ final class UserModel {
             
             data.decode(modelType: LoginAndRequestTokenResponse.self, success: { (loginRequestTokenResponse) in
                 if let isSuccessLogin = loginRequestTokenResponse.success {
-//                    CommonManger.shared.saveStringToNSUserDefault(value: loginRequestTokenResponse.requestToken!, key: CommonManger.SESSION_ID)
+                    //                    CommonManger.shared.saveStringToNSUserDefault(value: loginRequestTokenResponse.requestToken!, key: CommonManger.SESSION_ID)
                     if isSuccessLogin {
                         self.getAccountDetail(success: {
                             success()
@@ -86,63 +86,83 @@ final class UserModel {
         }
     }
     
-//    https://api.themoviedb.org/3/account/8660473/watchlist/movies?api_key=3ea4500e51ab3b0358547f472e44d5fc&session_id=1c9cf3211a9cd464048cf6a9a001bd6166f98ded
-//    String(format: MovieAPI.account.getMovieWatchList.urlStringWithSessionID(), "\(UserManager.shared.accountDetail?.id ?? 0)")
-    
-    func getWatchListMovies(success : @escaping ([MovieVO]) -> Void,
-                            failure : @escaping (String) -> Void) {
-        NetworkClient.shared.request(url:  String(format: MovieAPI.account.getMovieWatchList.urlStringWithSessionID(), "\(UserManager.shared.accountDetail?.id ?? 0)"), success: { (data) in
+    //MARK:- Rate List
+    func getRatedMovie(success : @escaping ([MovieVO]) -> Void,
+                       failure : @escaping (String) -> Void) {
+        NetworkClient.shared.request(url:  String(format: MovieAPI.account.getRatedMovies.urlStringWithSessionID(), "\(UserManager.shared.accountDetail?.id ?? 0)"), success: { (data) in
             
-            let json = JSON(data)
-//            let value = json[MovieResponseKey.results.keyString()]
-            let jsonString = json.rawString()
-            print(jsonString)
-//
-//            Data(jsonString!.utf8).decode(modelType: [MovieVO].self, success: { (movieList) in
-//                print(movieList.count)
-//                success(movieList)
-//            }) { (err) in
-//                print(err)
-//            }
-            
-            data.decode(modelType: BaseResponse.self, success: { (baseResponse) in
-                print(baseResponse.results?.count)
-                success(baseResponse.results!)
-            }) { (err) in
-                print(err)
-                failure(err)
+            if let movieList = data.filterByKey(key: MovieResponseKey.results.keyString()).decode(modelType: [MovieVO].self){
+                success(movieList)
+            } else {
+                failure("an error occure while encoding data to obj")
             }
-            
-//            data.filterByKey(key: MovieResponseKey.results.keyString()).decode(modelType: [MovieVO].self, success: { (movieList) in
-//                print(movieList.count)
-//                success(movieList)
-//            }) { (err) in
-//                print(err)
-//            }
-
         }) { (err) in
             print(err)
             failure(err)
         }
     }
     
+    func addMovieToRatedList(movieID : Int,
+                             value : Double,
+                             success : @escaping () -> Void,
+                             failure : @escaping (String) -> Void) {
+        let requestBodyForAddToRatedList = RateMovieRequest(value: value)
+        let param = requestBodyForAddToRatedList.toDictionary()
+        NetworkClient.shared.request(url: String(format: MovieAPI.movie.rating.urlStringWithSessionID(), "\(movieID)"), method: .post, parameters: param, success: { (data) in
+            if let manageListResponse = data.decode(modelType: ManageListResponse.self) {
+                print(manageListResponse.statusMessage as Any)
+                self.addRemoveMovieInRatedList(willAdd: true, movieID: movieID)
+                success()
+            }
+        }) { (err) in
+            print(err)
+            failure(err)
+        }
+    }
+    
+    func removeMovieFromRatedList(movieID : Int,
+                                  success : @escaping () -> Void,
+                                  failure : @escaping (String) -> Void) {
+        NetworkClient.shared.request(url: String(format: MovieAPI.movie.rating.urlStringWithSessionID(), "\(movieID)"), method: .delete, success: { (data) in
+            if let manageListResponse = data.decode(modelType: ManageListResponse.self) {
+                print(manageListResponse.statusMessage as Any)
+                self.addRemoveMovieInRatedList(willAdd: false, movieID: movieID)
+                success()
+            }
+        }) { (err) in
+            failure(err)
+        }
+    }
+    
+    
+    //MARK:- Watch List
+    func getWatchListMovies(success : @escaping ([MovieVO]) -> Void,
+                            failure : @escaping (String) -> Void) {
+        NetworkClient.shared.request(url:  String(format: MovieAPI.account.getMovieWatchList.urlStringWithSessionID(), "\(UserManager.shared.accountDetail?.id ?? 0)"), success: { (data) in
+            if let movieList = data.filterByKey(key: MovieResponseKey.results.keyString()).decode(modelType: [MovieVO].self){
+                success(movieList)
+            } else {
+                failure("an error occure while encoding data to obj")
+            }
+        }) { (err) in
+            print(err)
+            failure(err)
+        }
+    }
+    
+    
+    
     func addToWatchListMovie(movieID : Int,
                              success : @escaping () -> Void,
                              failure : @escaping (String) -> Void) {
         let requestBodyForAddToWatchList = AddWatchListRequest(mediaType: "movie", mediaId: movieID, watchlist: true)
         let param = requestBodyForAddToWatchList.toDictionary()
-        print(param)
-
-//        let param : [String : Any ] = [
-//                   "media_type" : "movie",
-//                   "media_id" : "\(movieID)",
-//                   "watchlist" : true
-//               ]
         
         if let accountid = UserManager.shared.accountDetail?.id {
             NetworkClient.shared.request(url: String(format: MovieAPI.account.addToWatchList.urlStringWithSessionID(), "\(accountid)"),method: .post,parameters: param, success: { (data) in
-                let manageWatchListMovieResponse = data.decode(modelType: ManageWatchListResponse.self)
+                let manageWatchListMovieResponse = data.decode(modelType: ManageListResponse.self)
                 if (manageWatchListMovieResponse?.isSuccess())! {
+                    self.addRemoveMovieInWatchList(willAdd: true, movieID: movieID)
                     success()
                 } else {
                     failure("already added movie")
@@ -157,21 +177,19 @@ final class UserModel {
     }
     
     func removeFromWatchListMovie(movieID : Int,
-                             success : @escaping () -> Void,
-                             failure : @escaping (String) -> Void) {
+                                  success : @escaping () -> Void,
+                                  failure : @escaping (String) -> Void) {
         let requestBodyForAddToWatchList = AddWatchListRequest(mediaType: "movie", mediaId: movieID, watchlist: false)
         let param = requestBodyForAddToWatchList.toDictionary()
+        
         print(param)
-//        let param : [String : Any ] = [
-//            "media_type" : "movie",
-//            "media_id" : "\(movieID)",
-//            "watchlist" : false
-//        ]
+        
         if let accountid = UserManager.shared.accountDetail?.id {
             NetworkClient.shared.request(url: String(format: MovieAPI.account.addToWatchList.urlStringWithSessionID(), "\(accountid)"),method: .post,parameters: param, success: { (data) in
-                let manageWatchListMovieResponse = data.decode(modelType: ManageWatchListResponse.self)
-                print(manageWatchListMovieResponse?.statusMessage!)
+                let manageWatchListMovieResponse = data.decode(modelType: ManageListResponse.self)
+                print(manageWatchListMovieResponse?.statusMessage! as Any)
                 if !(manageWatchListMovieResponse?.isSuccess())! {
+                    self.addRemoveMovieInWatchList(willAdd: false, movieID: movieID)
                     success()
                 } else {
                     failure("already deleted movie")
@@ -184,10 +202,28 @@ final class UserModel {
             failure("Need to Login at least one time")
         }
     }
-    
-    func getRatedMovies(success : @escaping () -> Void,
-                        failure : @escaping (String) -> Void) {
-        
-    }
 }
 
+//MARK:- REALM
+
+extension UserModel {
+    func getwatchListMovieFromRealm() -> [MovieVO]{
+        return MovieModel.shared.getMovieVOsByKey(key: "true", property: "isAddedWatchList")
+    }
+    
+    func getRatedListMovieFromRealm() -> [MovieVO] {
+        return MovieModel.shared.getMovieVOsByKey(key: "true", property: "isRated")
+    }
+    
+    func addRemoveMovieInWatchList(willAdd : Bool,movieID : Int) {
+        var movieVO = MovieModel.shared.getMovieVOById(movieID: movieID)
+        movieVO.isAddedWatchList = willAdd
+        DBManager.sharedInstance.addData(object: movieVO.toMovieRO())
+    }
+    
+    func addRemoveMovieInRatedList(willAdd : Bool, movieID : Int){
+        var movieVO = MovieModel.shared.getMovieVOById(movieID: movieID)
+        movieVO.isRated = willAdd
+        DBManager.sharedInstance.addData(object: movieVO.toMovieRO())
+    }
+}

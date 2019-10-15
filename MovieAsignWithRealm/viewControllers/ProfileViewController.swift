@@ -19,11 +19,8 @@ class ProfileViewController: BaseViewController {
     
     var accountDatil : AccountDetailVO?
     
-    var watchListMovies : [MovieVO] = [] {
-        didSet {
-            lblNoMovieInWatchList.isHidden = watchListMovies.isEmpty ? false : true
-        }
-    }
+    var watchListMovies : [MovieVO] = []
+    
     var ratedMovieList : [MovieVO] = [] {
         didSet {
             lblNoMovieInRatedList.isHidden = ratedMovieList.isEmpty ? false : true
@@ -34,7 +31,6 @@ class ProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkUserLoginAndDisplay()
     }
     
     override func setUpUIs() {
@@ -90,9 +86,17 @@ class ProfileViewController: BaseViewController {
         }).disposed(by: disposableBag)
         
         viewModel.watchListMovies.subscribe(onNext: { (movieList) in
-            self.watchListMovies = movieList
-            self.collectionViewWatchList.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.watchListMovies = movieList
+                self?.lblNoMovieInWatchList.isHidden = movieList.isEmpty ? false : true
+                self?.collectionViewWatchList.reloadData()
+            }
         }).disposed(by: disposableBag)
+        
+        viewModel.ratedMovieList.subscribe(onNext: { (movieList) in
+            self.ratedMovieList = movieList
+            self.collectionViewRatedMovieList.reloadData()
+            }).disposed(by: disposableBag)
         
     }
     
@@ -101,11 +105,12 @@ class ProfileViewController: BaseViewController {
     }
     
     private func fetchRatedList(){
-        collectionViewRatedMovieList.reloadData()
+        viewModel.getRatedMovies()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        checkUserLoginAndDisplay()
     }
     
     private func checkUserLoginAndDisplay(){
@@ -146,6 +151,7 @@ extension ProfileViewController : UICollectionViewDelegate {
         } else {
             vc.movieVO  = ratedMovieList[indexPath.row]
         }
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
 }

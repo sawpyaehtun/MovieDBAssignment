@@ -17,20 +17,30 @@ class NetworkClient {
     //MARK:- NETWORK CALLS
     static let shared = NetworkClient()
     
+    private let APIManager: SessionManager = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 20
+        configuration.urlCache = nil
+        configuration.requestCachePolicy = .reloadIgnoringCacheData
+        let delegate = SessionManager.default.delegate
+        let manager = SessionManager.init(configuration: configuration,
+                                          delegate: delegate)
+        return manager
+    }()
+    
     public func request(url : String,
                         method : HTTPMethod = .get,
                         parameters : Parameters = [:],
                         headers : HTTPHeaders = [:],
                         success : @escaping (Data) -> Void,
                         failure : @escaping (String) -> Void){
+        
         print("url . . . : \(url)")
         
-        Alamofire.request(url, method: method, parameters: parameters, headers: headers).validate().responseData { (response) in
+        let encoding : ParameterEncoding = (method == .get ? URLEncoding.default : JSONEncoding.default)
+        APIManager.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data) :
-//                let json = JSON(data)
-//                let jsonString = json.rawString()
-//                print(jsonString)
                 success(data)
             case .failure(let err) :
                 failure(err.localizedDescription)
@@ -39,23 +49,19 @@ class NetworkClient {
         }
     }
     
-    public func requestWithoutCache (url: String,
-                                     method : HTTPMethod = .get,
-                                     parameters : Parameters = [:],
-                                     headers : HTTPHeaders = [:],
-                                     success : @escaping (Data) -> Void,
-                                     failure : @escaping (String) -> Void){
-        print("url . . . : \(url)")
-        Alamofire.SessionManager.default.request(url, method: method, parameters: parameters, headers: headers).responseData { (response) in
-            switch response.result {
-            case .success(let data) :
-                success(data)
-            case .failure(let err) :
-                failure(err.localizedDescription)
-                break
-            }
-        }
+    
+    func getDataWithUrlSession(url : String, success : @escaping (Data) -> Void,
+                               failure : @escaping (String) -> Void) {
         
+        let route = URL(string: url)
+        print("route !!!! \(route)")
+        URLSession.shared.dataTask(with: route!) { (data, urlresponse, error) in
+            if let data = data  {
+                success(data)
+            } else {
+                failure(error!.localizedDescription)
+            }
+        }.resume()
     }
 }
 

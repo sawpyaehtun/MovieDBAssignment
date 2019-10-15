@@ -73,6 +73,8 @@
 		D0852C7B234470AE00F7D3B1 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0852C52234470AE00F7D3B1 /* BaseResponse.swift */; };
 		D0852C7C234470AE00F7D3B1 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0852C53234470AE00F7D3B1 /* BaseViewModel.swift */; };
 		D0852C7E2345A4F000F7D3B1 /* CategoryRO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0852C7D2345A4F000F7D3B1 /* CategoryRO.swift */; };
+		D08E74B523559F1D00B46FCC /* RateMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08E74B323559F1D00B46FCC /* RateMovieViewController.swift */; };
+		D08E74B623559F1D00B46FCC /* RateMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08E74B423559F1D00B46FCC /* RateMovieViewController.xib */; };
 		D0B41727234AFF1A009555CD /* VdieoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B41726234AFF1A009555CD /* VdieoModel.swift */; };
 		D0B41729234B2BDE009555CD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B41728234B2BDE009555CD /* ProfileViewController.swift */; };
 		D0B4172B234B318A009555CD /* ButtonLabelAndBorderWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B4172A234B318A009555CD /* ButtonLabelAndBorderWhite.swift */; };
@@ -92,7 +94,7 @@
 		D0D9BC5A234DB15F00AE4404 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC59234DB15F00AE4404 /* RoundedImageView.swift */; };
 		D0D9BC5C234E0BA100AE4404 /* GravatarVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC5B234E0BA100AE4404 /* GravatarVO.swift */; };
 		D0D9BC5E234E0BD900AE4404 /* AvatarVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC5D234E0BD900AE4404 /* AvatarVO.swift */; };
-		D0D9BC60234EEC2C00AE4404 /* ManageWatchListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC5F234EEC2C00AE4404 /* ManageWatchListResponse.swift */; };
+		D0D9BC60234EEC2C00AE4404 /* ManageListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC5F234EEC2C00AE4404 /* ManageListResponse.swift */; };
 		D0D9BC63234EF67A00AE4404 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC62234EF67A00AE4404 /* UserManager.swift */; };
 		D0D9BC65234EFB3600AE4404 /* AlertWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC64234EFB3600AE4404 /* AlertWireFrame.swift */; };
 		D0D9BC6723504D8300AE4404 /* Alamofire + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC6623504D8300AE4404 /* Alamofire + Extension.swift */; };
@@ -192,6 +194,8 @@
 		D0852C52234470AE00F7D3B1 /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		D0852C53234470AE00F7D3B1 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		D0852C7D2345A4F000F7D3B1 /* CategoryRO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRO.swift; sourceTree = "<group>"; };
+		D08E74B323559F1D00B46FCC /* RateMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateMovieViewController.swift; sourceTree = "<group>"; };
+		D08E74B423559F1D00B46FCC /* RateMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateMovieViewController.xib; sourceTree = "<group>"; };
 		D0B41726234AFF1A009555CD /* VdieoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VdieoModel.swift; sourceTree = "<group>"; };
 		D0B41728234B2BDE009555CD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D0B4172A234B318A009555CD /* ButtonLabelAndBorderWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLabelAndBorderWhite.swift; sourceTree = "<group>"; };
@@ -211,7 +215,7 @@
 		D0D9BC59234DB15F00AE4404 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		D0D9BC5B234E0BA100AE4404 /* GravatarVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravatarVO.swift; sourceTree = "<group>"; };
 		D0D9BC5D234E0BD900AE4404 /* AvatarVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarVO.swift; sourceTree = "<group>"; };
-		D0D9BC5F234EEC2C00AE4404 /* ManageWatchListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWatchListResponse.swift; sourceTree = "<group>"; };
+		D0D9BC5F234EEC2C00AE4404 /* ManageListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListResponse.swift; sourceTree = "<group>"; };
 		D0D9BC62234EF67A00AE4404 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		D0D9BC64234EFB3600AE4404 /* AlertWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWireFrame.swift; sourceTree = "<group>"; };
 		D0D9BC6623504D8300AE4404 /* Alamofire + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire + Extension.swift"; sourceTree = "<group>"; };
@@ -457,6 +461,8 @@
 				D0852C38234470AD00F7D3B1 /* MovieDetailViewController.swift */,
 				D0B41728234B2BDE009555CD /* ProfileViewController.swift */,
 				D0D9BC48234C5E9800AE4404 /* LoginViewController.swift */,
+				D08E74B323559F1D00B46FCC /* RateMovieViewController.swift */,
+				D08E74B423559F1D00B46FCC /* RateMovieViewController.xib */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -556,7 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				D0D9BC3E234C4E6900AE4404 /* LoginAndRequestTokenResponse.swift */,
-				D0D9BC5F234EEC2C00AE4404 /* ManageWatchListResponse.swift */,
+				D0D9BC5F234EEC2C00AE4404 /* ManageListResponse.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -689,6 +695,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0D9BC4B234C5E9800AE4404 /* LoginViewController.xib in Resources */,
+				D08E74B623559F1D00B46FCC /* RateMovieViewController.xib in Resources */,
 				D018E297234749DC00BB5B78 /* MovieListTableViewCell.xib in Resources */,
 				D0852C6B234470AE00F7D3B1 /* MovieDetailViewController.xib in Resources */,
 				D02CD38A2348687F00586FD9 /* PlayTraillerViewController.xib in Resources */,
@@ -835,7 +842,7 @@
 				D0852C74234470AE00F7D3B1 /* UICollectionView+Extension.swift in Sources */,
 				D0852C7B234470AE00F7D3B1 /* BaseResponse.swift in Sources */,
 				D0852C78234470AE00F7D3B1 /* NetworkConfiguration.swift in Sources */,
-				D0D9BC60234EEC2C00AE4404 /* ManageWatchListResponse.swift in Sources */,
+				D0D9BC60234EEC2C00AE4404 /* ManageListResponse.swift in Sources */,
 				D0852C69234470AE00F7D3B1 /* MovieDetailViewController.swift in Sources */,
 				D0852C7E2345A4F000F7D3B1 /* CategoryRO.swift in Sources */,
 				D0D9BC58234D9B3A00AE4404 /* AddWatchListRequest.swift in Sources */,
@@ -874,6 +881,7 @@
 				D0D9BC51234C698B00AE4404 /* UserModel.swift in Sources */,
 				D0852C58234470AE00F7D3B1 /* BookMarkRO.swift in Sources */,
 				D0D9BC65234EFB3600AE4404 /* AlertWireFrame.swift in Sources */,
+				D08E74B523559F1D00B46FCC /* RateMovieViewController.swift in Sources */,
 				D0852C5A234470AE00F7D3B1 /* movieRO.swift in Sources */,
 				D0852C55234470AE00F7D3B1 /* BookMarkVO.swift in Sources */,
 				D018E29923474C0A00BB5B78 /* BaseTableViewCell.swift in Sources */,

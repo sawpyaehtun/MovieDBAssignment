@@ -127,4 +127,27 @@ class DBManager {
         
     }
     
+    func getObjArrayByKey(key : String,property : String,roName : ROname) -> [Object]? {
+           let predicate = NSPredicate(format: "\(property) == \(key)")
+           
+           switch roName {
+           case .MovieRO:
+               let result = database.objects(MovieRO.self).filter(predicate)
+               return result.count > 0 ? Array(result) : nil
+           case .GenreRO:
+               let result = database.objects(GenreRO.self).filter(predicate)
+               return result.count > 0 ? Array(result) : nil
+           case .BookMarkRO:
+               let result = database.objects(BookMarkRO.self).filter(predicate)
+               return result.count > 0 ? Array(result) : nil
+           case .ProductionCompanyRO:
+               let result = database.objects(ProductionCompanyRO.self).filter(predicate)
+               return result.count > 0 ? Array(result) : nil
+           case .CategoryRO:
+               let result = database.objects(CategoryRO.self).filter(predicate)
+               return result.count > 0 ? Array(result) : nil
+           }
+           
+       }
+    
 }
