@@ -97,7 +97,6 @@
 		D0D9BC60234EEC2C00AE4404 /* ManageListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC5F234EEC2C00AE4404 /* ManageListResponse.swift */; };
 		D0D9BC63234EF67A00AE4404 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC62234EF67A00AE4404 /* UserManager.swift */; };
 		D0D9BC65234EFB3600AE4404 /* AlertWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC64234EFB3600AE4404 /* AlertWireFrame.swift */; };
-		D0D9BC6723504D8300AE4404 /* Alamofire + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9BC6623504D8300AE4404 /* Alamofire + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,7 +217,6 @@
 		D0D9BC5F234EEC2C00AE4404 /* ManageListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListResponse.swift; sourceTree = "<group>"; };
 		D0D9BC62234EF67A00AE4404 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		D0D9BC64234EFB3600AE4404 /* AlertWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWireFrame.swift; sourceTree = "<group>"; };
-		D0D9BC6623504D8300AE4404 /* Alamofire + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire + Extension.swift"; sourceTree = "<group>"; };
 		ED42F666BA9E066B737AB7D4 /* Pods-MovieAsignWithRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieAsignWithRealm.debug.xcconfig"; path = "Target Support Files/Pods-MovieAsignWithRealm/Pods-MovieAsignWithRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		F5423A1866822F93BF77235A /* Pods-MovieAsignWithRealm-MovieAsignWithRealmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieAsignWithRealm-MovieAsignWithRealmUITests.release.xcconfig"; path = "Target Support Files/Pods-MovieAsignWithRealm-MovieAsignWithRealmUITests/Pods-MovieAsignWithRealm-MovieAsignWithRealmUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -353,8 +351,6 @@
 				D0852BEE2344702100F7D3B1 /* AppDelegate.swift */,
 				D0852BF72344702200F7D3B1 /* LaunchScreen.storyboard */,
 				D0852BFA2344702200F7D3B1 /* Info.plist */,
-				D0B4172E234B5023009555CD /* CommonManager.swift */,
-				D0D9BC64234EFB3600AE4404 /* AlertWireFrame.swift */,
 			);
 			path = MovieAsignWithRealm;
 			sourceTree = "<group>";
@@ -425,10 +421,6 @@
 			children = (
 				D0852C2B234470AD00F7D3B1 /* xibs */,
 				D0852C2D234470AD00F7D3B1 /* swifts */,
-				D0852C2F234470AD00F7D3B1 /* GenreItemTableViewCell.xib */,
-				D0852C30234470AD00F7D3B1 /* GenreItemTableViewCell.swift */,
-				D018E294234749DC00BB5B78 /* MovieListTableViewCell.swift */,
-				D018E295234749DC00BB5B78 /* MovieListTableViewCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -436,7 +428,9 @@
 		D0852C2B234470AD00F7D3B1 /* xibs */ = {
 			isa = PBXGroup;
 			children = (
+				D0852C2F234470AD00F7D3B1 /* GenreItemTableViewCell.xib */,
 				D0852C2C234470AD00F7D3B1 /* MoviePosetCollectionViewCell.xib */,
+				D018E295234749DC00BB5B78 /* MovieListTableViewCell.xib */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -444,6 +438,8 @@
 		D0852C2D234470AD00F7D3B1 /* swifts */ = {
 			isa = PBXGroup;
 			children = (
+				D018E294234749DC00BB5B78 /* MovieListTableViewCell.swift */,
+				D0852C30234470AD00F7D3B1 /* GenreItemTableViewCell.swift */,
 				D0852C2E234470AD00F7D3B1 /* MoviePosetCollectionViewCell.swift */,
 			);
 			path = swifts;
@@ -462,7 +458,6 @@
 				D0B41728234B2BDE009555CD /* ProfileViewController.swift */,
 				D0D9BC48234C5E9800AE4404 /* LoginViewController.swift */,
 				D08E74B323559F1D00B46FCC /* RateMovieViewController.swift */,
-				D08E74B423559F1D00B46FCC /* RateMovieViewController.xib */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -470,6 +465,7 @@
 		D0852C39234470AE00F7D3B1 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				D08E74B423559F1D00B46FCC /* RateMovieViewController.xib */,
 				D0D9BC49234C5E9800AE4404 /* LoginViewController.xib */,
 				D02CD3882348687F00586FD9 /* PlayTraillerViewController.xib */,
 				D0852C3A234470AE00F7D3B1 /* Main.storyboard */,
@@ -514,7 +510,6 @@
 				D02CD38D23486FC800586FD9 /* UIViewController+Extension.swift */,
 				D0D9BC52234C89D100AE4404 /* EnCodable + Extension.swift */,
 				D0D9BC54234CA73500AE4404 /* Data+Extension.swift */,
-				D0D9BC6623504D8300AE4404 /* Alamofire + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -579,6 +574,8 @@
 		D0D9BC61234EF66E00AE4404 /* manager */ = {
 			isa = PBXGroup;
 			children = (
+				D0B4172E234B5023009555CD /* CommonManager.swift */,
+				D0D9BC64234EFB3600AE4404 /* AlertWireFrame.swift */,
 				D0852C4C234470AE00F7D3B1 /* DBManager.swift */,
 				D0D9BC62234EF67A00AE4404 /* UserManager.swift */,
 			);
@@ -854,7 +851,6 @@
 				D0D9BC4D234C627300AE4404 /* ProfileViewModel.swift in Sources */,
 				D018E2932347124D00BB5B78 /* CategoryModel.swift in Sources */,
 				D0852C79234470AE00F7D3B1 /* NetworkClient.swift in Sources */,
-				D0D9BC6723504D8300AE4404 /* Alamofire + Extension.swift in Sources */,
 				D0852C77234470AE00F7D3B1 /* DBManager.swift in Sources */,
 				D0852C59234470AE00F7D3B1 /* GenreRO.swift in Sources */,
 				D0852C5E234470AE00F7D3B1 /* GenreModel.swift in Sources */,

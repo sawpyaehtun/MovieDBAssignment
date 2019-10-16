@@ -19,7 +19,11 @@ class ProfileViewController: BaseViewController {
     
     var accountDatil : AccountDetailVO?
     
-    var watchListMovies : [MovieVO] = []
+    var watchListMovies : [MovieVO] = []{
+        didSet {
+            lblNoMovieInWatchList.isHidden = watchListMovies.isEmpty ? false : true
+        }
+    }
     
     var ratedMovieList : [MovieVO] = [] {
         didSet {
@@ -81,23 +85,15 @@ class ProfileViewController: BaseViewController {
         super.bindData()
         viewModel.userName.bind(to: lblUsername.rx.text).disposed(by: disposableBag)
         
-        viewModel.ratedMovieList.subscribe(onNext: { (movieList) in
-            self.ratedMovieList = movieList
-        }).disposed(by: disposableBag)
-        
         viewModel.watchListMovies.subscribe(onNext: { (movieList) in
-            DispatchQueue.main.async { [weak self] in
-                self?.watchListMovies = movieList
-                self?.lblNoMovieInWatchList.isHidden = movieList.isEmpty ? false : true
-                self?.collectionViewWatchList.reloadData()
-            }
+            self.watchListMovies = movieList
+            self.collectionViewWatchList.reloadData()
         }).disposed(by: disposableBag)
         
         viewModel.ratedMovieList.subscribe(onNext: { (movieList) in
             self.ratedMovieList = movieList
             self.collectionViewRatedMovieList.reloadData()
             }).disposed(by: disposableBag)
-        
     }
     
     private func fetchWatchList(){
