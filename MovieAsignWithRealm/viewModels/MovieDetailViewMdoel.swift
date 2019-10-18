@@ -17,6 +17,7 @@ class MovieDetailViewModel: BaseViewModel {
     var isAddedToWatchListObserable = BehaviorRelay<Bool>(value: false)
     var isRatedMovieObserable = BehaviorRelay<Bool>(value: false)
     let internetConnectionError = "Please Check Your Internet Connection!"
+    
     func getSimilarMovie(movieId : Int) {
         loadingObservable.accept(true)
         MovieModel.shared.getSimilarMovie(movieId: movieId, success: { (movieVOs) in

@@ -34,8 +34,7 @@ class MovieDetailViewController: BaseViewController {
         }
     }
     
-    var similarMovieList : [MovieVO] = []
-    let viewModel = MovieDetailViewModel()
+    var viewModel = MovieDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +76,7 @@ class MovieDetailViewController: BaseViewController {
     }
     
     private func checkMovieInRatedList(){
-         viewModel.getMovieAndCheckInRatedList(movieID: movie?.id ?? 0)
+        viewModel.getMovieAndCheckInRatedList(movieID: movie?.id ?? 0)
     }
     
     private func setupScrollview(){
@@ -96,13 +95,22 @@ class MovieDetailViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         imgBlurView.heightConstaint?.constant = viewTopView.frame.height
+        view.superview!.setNeedsLayout()
+        view.superview!.layoutIfNeeded()
     }
     
     override func bindData() {
-        viewModel.similarMovieListObserable.subscribe(onNext: { (movielist) in
-            self.similarMovieList = movielist
-            self.collectionViewSimilarMovieList.reloadData()
+        
+        collectionViewSimilarMovieList.rx.modelSelected(MovieVO.self).subscribe(onNext: { (movie) in
+            let vc = MovieDetailViewController.init()
+            vc.movieVO = movie
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
         }).disposed(by: disposableBag)
+        
+        viewModel.similarMovieListObserable.bind(to: collectionViewSimilarMovieList.rx.items(cellIdentifier: String(describing: MoviePosetCollectionViewCell.self), cellType: MoviePosetCollectionViewCell.self)){ row, model, cell in
+            cell.movieVO = model
+        }.disposed(by: disposableBag)
         
         viewModel.movieDetailObserable.subscribe(onNext: { (movie) in
             if let movie = movie {
@@ -117,12 +125,10 @@ class MovieDetailViewController: BaseViewController {
         
         viewModel.isRatedMovieObserable.subscribe(onNext: { (flag) in
             self.imgRate.tintColor = flag ? UIColor.red : UIColor.white
-            }).disposed(by: disposableBag)
+        }).disposed(by: disposableBag)
     }
     
     private func setupCollectionView(){
-        collectionViewSimilarMovieList.delegate = self
-        collectionViewSimilarMovieList.dataSource = self
         
         collectionViewSimilarMovieList.registerForCell(strID: String(describing: MoviePosetCollectionViewCell.self))
         
@@ -140,54 +146,31 @@ extension MovieDetailViewController {
     }
     
     @IBAction func didTapRate(_ sender: Any) {
-           if imgRate.tintColor == UIColor.white {
-               let vc = RateMovieViewController.init()
-               vc.movieTitle = (movie?.title) ?? ""
-               vc.rateMovieDelegate = self
-               hl_addChildViewController(vc, toContainerView: self.view)
-           } else {
-               viewModel.removeFromRatedList(movieID: movie?.id ?? 0)
-           }
-       }
-       
-       @IBAction func didTapMyList(_ sender: Any) {
-           if imgMyList.tintColor == UIColor.white {
-               viewModel.addToWatchList(movieID: movie?.id ?? 0)
-           } else {
-               viewModel.removeFromWatchList(movieID: movie?.id ?? 0)
-           }
-       }
-       
-       @IBAction func btnPlay(_ sender: Any) {
-           let vc = PlayTraillerViewController.init()
-           vc.movieID = (movie?.id)!
-           hl_addChildViewController(vc, toContainerView: self.view)
-       }
-}
-
-//MARK:- Similar Movie Delegate and DataSource
-extension MovieDetailViewController : UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = MovieDetailViewController.init()
-        vc.movieVO = similarMovieList[indexPath.row]
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        if imgRate.tintColor == UIColor.white {
+            let vc = RateMovieViewController.init()
+            vc.movieTitle = (movie?.title) ?? ""
+            vc.rateMovieDelegate = self
+            hl_addChildViewController(vc, toContainerView: self.view)
+        } else {
+            viewModel.removeFromRatedList(movieID: movie?.id ?? 0)
+        }
+    }
+    
+    @IBAction func didTapMyList(_ sender: Any) {
+        if imgMyList.tintColor == UIColor.white {
+            viewModel.addToWatchList(movieID: movie?.id ?? 0)
+        } else {
+            viewModel.removeFromWatchList(movieID: movie?.id ?? 0)
+        }
+    }
+    
+    @IBAction func btnPlay(_ sender: Any) {
+        let vc = PlayTraillerViewController.init()
+        vc.movieID = (movie?.id)!
+        hl_addChildViewController(vc, toContainerView: self.view)
     }
 }
 
-extension MovieDetailViewController : UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return similarMovieList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MoviePosetCollectionViewCell.self), for: indexPath) as? MoviePosetCollectionViewCell
-        item?.movieVO = similarMovieList[indexPath.row]
-        return item!
-    }
-    
-    
-}
 
 //MARK:- Rate movie Delegate
 extension MovieDetailViewController : RateMovieDelegate{

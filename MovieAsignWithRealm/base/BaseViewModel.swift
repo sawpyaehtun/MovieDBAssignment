@@ -19,6 +19,9 @@ class BaseViewModel {
     var loadingObservable = BehaviorRelay<Bool>(value: false)
     var isGifLoadingView = false
     
+    init() {
+        
+    }
     deinit {
         debugPrint("Deinit \(type(of: self))")
     }

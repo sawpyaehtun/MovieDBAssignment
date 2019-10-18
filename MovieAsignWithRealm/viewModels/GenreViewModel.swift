@@ -12,7 +12,27 @@ import RxSwift
 
 final class GenreViewModel : BaseViewModel {
     
+    // output
     var genreList = BehaviorRelay<[GenreVO]>(value: [])
+    
+    // Interaction
+    let tapRefetchData : AnyObserver<Void>
+    let didTapRefetchData : Observable<Void>
+    
+    override init() {
+        let _tapRefetchData = PublishSubject<Void>()
+        self.tapRefetchData = _tapRefetchData.asObserver()
+        self.didTapRefetchData = _tapRefetchData.asObservable()
+        
+        super.init()
+        self.fetchGenre()
+        didTapRefetchData.subscribe(onNext: { (_) in
+            self.fetchGenre()
+        }).disposed(by: disposableBag)
+    }
+}
+
+extension GenreViewModel{
     
     func fetchGenre() {
         loadingObservable.accept(true)

@@ -249,8 +249,8 @@ final class MovieModel: BaseViewModel {
         return movieRO
     }
     
-    func getMovieVOById(movieID : Int) -> MovieVO {
-        return (getMovieROById(movieID: movieID)?.toMovieVO())!
+    func getMovieVOById(movieID : Int) -> MovieVO? {
+        return (getMovieROById(movieID: movieID)?.toMovieVO())
     }
     
     func getMovieVOsByKey(key : String, property : String) -> [MovieVO]{

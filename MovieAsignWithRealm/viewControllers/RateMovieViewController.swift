@@ -27,11 +27,6 @@ class RateMovieViewController: BaseViewController {
     
     override func setUpUIs() {
         super.setUpUIs()
-        
-//        let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(didTapToBackGroundView(sender:)))
-//        self.view.isUserInteractionEnabled = true
-//        self.view.addGestureRecognizer(tapGestureRecogniser)
-        
         lblMovieTitle.text = movieTitle
     }
     

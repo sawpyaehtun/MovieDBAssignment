@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="MovieAsignWithRealm" customModuleProvider="target">
             <connections>
                 <outlet property="btnPasswordShowHide" destination="ZiJ-hi-44r" id="4n2-pJ-tPv"/>
+                <outlet property="btnSignIn" destination="jk6-s0-Fyk" id="Ci5-OX-0tx"/>
                 <outlet property="lblErrorLogin" destination="Kim-9s-jcB" id="NrI-dJ-b6G"/>
                 <outlet property="tfPassword" destination="I1A-55-KHt" id="v53-3J-ZyB"/>
                 <outlet property="tfUsername" destination="Kos-QR-lkK" id="ogp-yT-8Lg"/>
@@ -75,9 +76,6 @@
                                     <state key="normal" title="SHOW">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
-                                    <connections>
-                                        <action selector="didTapBtnPasswordShowHide:" destination="-1" eventType="touchUpInside" id="3vX-xp-aBG"/>
-                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,9 +108,6 @@
                                     <real key="value" value="10"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="didTapBtnSignIn:" destination="-1" eventType="touchUpInside" id="xSU-Q5-OOf"/>
-                            </connections>
                         </button>
                     </subviews>
                     <constraints>

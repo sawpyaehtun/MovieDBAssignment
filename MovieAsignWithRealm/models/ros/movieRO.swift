@@ -10,10 +10,10 @@ import Foundation
 import RealmSwift
 
 enum Category : Int{
-    case nowPlaying = 1
-    case popular = 2
-    case topRated = 3
-    case upComing = 4
+    case nowPlaying = 0
+    case popular = 1
+    case topRated = 2
+    case upComing = 3
 }
 
 @objcMembers final class MovieRO : Object{

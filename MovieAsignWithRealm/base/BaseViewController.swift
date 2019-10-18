@@ -12,8 +12,9 @@ import RxCocoa
 import RxSwift
 
 class BaseViewController: UIViewController {
-
+    
     let disposableBag = DisposeBag()
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class BaseViewController: UIViewController {
     }
     
     func setUpNavigationBar() {
-
+        
     }
     
     func setUpUIs() {
@@ -38,7 +39,12 @@ class BaseViewController: UIViewController {
     func bindModel() {
         
     }
-
+    
+    func setUpRefreshControl() {
+        refreshControl.backgroundColor = UIColor.black
+        refreshControl.tintColor = UIColor.white
+    }
+    
 }
 
 

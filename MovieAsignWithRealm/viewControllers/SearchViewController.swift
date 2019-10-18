@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class SearchViewController: BaseViewController {
 
@@ -20,11 +22,6 @@ class SearchViewController: BaseViewController {
     let TrailingSpace : CGFloat = 10
     
     var viewModel = SearchViewModel()
-    var movieList : [MovieVO] = [] {
-        didSet {
-            lblResultTitle.text = movieList.isEmpty ? "No result found . . " : "Movies & TV"
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,21 +37,27 @@ class SearchViewController: BaseViewController {
         setupCollectionView()
     }
     
-    private func searchMovie(movieName : String){
-        viewModel.searchMovie(movieName: movieName)
-    }
-    
     override func bindData() {
-        viewModel.searchResultmovieList.subscribe(onNext: { (movieResultList) in
-            self.movieList = movieResultList
-            self.collectionViewSearchedMovieList.reloadData()
+        searchBar.tfSearch.rx.text.orEmpty.bind(to: viewModel.movieName).disposed(by: disposableBag)
+        searchBar.tfSearch.rx.controlEvent(.editingDidEnd).bind(to: viewModel.tapSearch).disposed(by: disposableBag)
+        
+        viewModel.searchResultmovieList
+            .observeOn(MainScheduler.instance)
+            .do(onNext: { (movielist) in
+                self.lblResultTitle.text = movielist.isEmpty ? "No result found . . " : "Movies & TV"
+            }).bind(to: collectionViewSearchedMovieList.rx.items(cellIdentifier: String(describing: MoviePosetCollectionViewCell.self), cellType: MoviePosetCollectionViewCell.self)){ row, model, cell in
+                cell.movieVO = model
+        }.disposed(by: disposableBag)
+        
+        collectionViewSearchedMovieList.rx.modelSelected(MovieVO.self).subscribe(onNext: { (movie) in
+            let vc = MovieDetailViewController.init()
+            vc.movieVO = movie
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
         }).disposed(by: disposableBag)
     }
     
     private func setupCollectionView(){
-        collectionViewSearchedMovieList.delegate = self
-        collectionViewSearchedMovieList.dataSource = self
-        
         collectionViewSearchedMovieList.registerForCell(strID: String(describing: MoviePosetCollectionViewCell.self))
         
         let layout = collectionViewSearchedMovieList.collectionViewLayout as! UICollectionViewFlowLayout
@@ -64,39 +67,12 @@ class SearchViewController: BaseViewController {
         // calculating total padding
         let totalPadding : CGFloat = (numberOfItemsInRow * spacing) + leadingSpace + TrailingSpace
         let itemWidth = (self.view.frame.width - totalPadding) / numberOfItemsInRow
-        
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth * 1.45)
     }
     
 }
 
-extension SearchViewController : UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = MovieDetailViewController.init()
-        vc.movieVO = movieList[indexPath.row]
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-//        navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
-extension SearchViewController : UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movieList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MoviePosetCollectionViewCell.self), for: indexPath) as? MoviePosetCollectionViewCell
-        item?.movieVO = movieList[indexPath.row]
-        return item!
-    }
-}
-
 extension SearchViewController : UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        searchMovie(movieName: textField.text ?? "")
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

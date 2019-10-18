@@ -26,7 +26,7 @@ class DBManager {
          print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         if let categories = self.getDataFromDB(roName: .CategoryRO), categories.isEmpty {
-            for i in 1...4 {
+            for i in 0...3 {
                 var name = ""
                 switch i {
                 case Category.nowPlaying.rawValue :

@@ -19,6 +19,7 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var tfUsername: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var btnPasswordShowHide: PasswordShowHideButton!
+    @IBOutlet weak var btnSignIn: ButtonLabelAndBorderWhite!
     
     var loginViewControllerDelegate : LoginViewControllerDelegate?
     let viewModel = LoginViewModel()
@@ -33,23 +34,25 @@ class LoginViewController: BaseViewController {
     }
     
     override func bindData() {
-        viewModel.isValidLogin.bind(to: lblErrorLogin.rx.isHidden).disposed(by: disposableBag)
-    }
-}
-
-//MARK:- USER INTERACTIONS
-extension LoginViewController{
-    
-    @IBAction func didTapBtnPasswordShowHide(_ sender: Any) {
-        btnPasswordShowHide.isDisplaying = !btnPasswordShowHide.isDisplaying
-        tfPassword.isSecureTextEntry = !btnPasswordShowHide.isDisplaying
-    }
-    
-    @IBAction func didTapBtnSignIn(_ sender: Any) {
-        viewModel.login(username: tfUsername.text!, password: tfPassword.text!) {
-            self.loginViewControllerDelegate?.successLogin()
-            CommonManger.shared.saveBoolToNSUserDefault(value: true, key: CommonManger.IS_USER_LOGIN)
-            self.navigationController?.viewControllers.removeLast()
-        }
+        tfUsername.rx.text.orEmpty.bind(to: viewModel.userName).disposed(by: disposableBag)
+        tfPassword.rx.text.orEmpty.bind(to: viewModel.password).disposed(by: disposableBag)
+        btnSignIn.rx.tap.bind(to: viewModel.tapSignIn).disposed(by: disposableBag)
+        btnPasswordShowHide.rx.tap.bind(to: viewModel.tapShowHidePassword).disposed(by: disposableBag)
+        
+        viewModel.isShowPassword.subscribe(onNext: { (isShowPass) in
+            self.btnPasswordShowHide.isDisplaying = isShowPass
+            self.tfPassword.isSecureTextEntry = !isShowPass
+            }).disposed(by: disposableBag)
+        
+        viewModel.isSuccessLogin.subscribe(onNext: { (isSuccess) in
+            guard let isSuccess = isSuccess else {return}
+            if isSuccess {
+                self.loginViewControllerDelegate?.successLogin()
+                CommonManger.shared.saveBoolToNSUserDefault(value: true, key: CommonManger.IS_USER_LOGIN)
+                self.navigationController?.viewControllers.removeLast()
+            } else {
+                self.lblErrorLogin.isHidden = isSuccess
+            }
+        }).disposed(by: disposableBag)
     }
 }
