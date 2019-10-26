@@ -142,7 +142,12 @@ class MovieDetailViewController: BaseViewController {
 extension MovieDetailViewController {
     
     @IBAction func btnClose(_ sender: Any) {
+//        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: false, completion: nil)
+//        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+//        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+//        Timer.invalidate(<#T##self: Timer##Timer#>)
         self.dismiss(animated: true, completion: nil)
+//        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func didTapRate(_ sender: Any) {
